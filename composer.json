@@ -1,0 +1,16 @@
+{
+  "name": "supercoda/NerworkPathTest",
+  "description": "A simple graph path finder written in PHP",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andre",
+      "email": "andreljx1986@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.4"
+  }
+}
