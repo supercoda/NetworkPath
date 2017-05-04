@@ -6,9 +6,10 @@ function main($argv)
 
     $csv = array_map('str_getcsv', file($argv[1]));
 
+    clearScreen();
+
     $graph = createGraph($csv);
 
-    clearScreen();
     printMenu();
 
     // Loop until they enter 'QUIT' for Quit
@@ -69,19 +70,26 @@ function prompt()
 function createGraph($data)
 {
     $graph = array();
+    $rowCount = 1;
     foreach ($data as $path) {
-        if (!isset($graph[$path[0]])) {
-            $graph[$path[0]] = array();
-        }
-        $graph[$path[0]][$path[1]] = $path[2];
+        if (is_numeric($path[2])) {
+            if (!isset($graph[$path[0]])) {
+                $graph[$path[0]] = array();
+            }
+            $graph[$path[0]][$path[1]] = $path[2];
 
-        /**
-         * Create the corresponding reverse path for this point to the source
-         */
-        if (!isset($graph[$path[1]])) {
-            $graph[$path[1]] = array();
+            /**
+             * Create the corresponding reverse path for this point to the source
+             */
+            if (!isset($graph[$path[1]])) {
+                $graph[$path[1]] = array();
+            }
+            $graph[$path[1]][$path[0]] = $path[2];
+        } else {
+            echo "Data at row {$rowCount} is not valid because the latency value is not a number.\n";
         }
-        $graph[$path[1]][$path[0]] = $path[2];
+
+        $rowCount++;
     }
 
     return $graph;
