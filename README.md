@@ -1,4 +1,4 @@
-# NetworkPathTest
+# NetworkPath
 
 ## Usage
 
