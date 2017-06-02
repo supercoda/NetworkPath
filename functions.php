@@ -67,7 +67,7 @@ function prompt()
  * @param $data
  * @return array
  */
-function createGraph($data)
+function createGraph(array $data) : array
 {
     $graph = array();
     $rowCount = 1;
@@ -96,7 +96,7 @@ function createGraph($data)
 }
 
 
-function findPath($graph, $source, $target, $time)
+function findPath(array $graph, string $source, string $target, int $time) : string
 {
     $visited = array();
     /**

@@ -9,12 +9,12 @@ class DoublyLinkedListWithCount extends SplDoublyLinkedList
 {
     private $totalTime = 0;
 
-    public function setTotalTime($totalTime)
+    public function setTotalTime(int $totalTime)
     {
         $this->totalTime = $totalTime;
     }
 
-    public function getTotalTime()
+    public function getTotalTime() : int
     {
         return $this->totalTime;
     }
